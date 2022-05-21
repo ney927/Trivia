@@ -1,0 +1,20 @@
+body{
+  background-color: #3D348B;
+  text-align: center;
+}
+
+h1{
+  color: #E6AF2E;
+  font-size: 70px;
+  margin-top: 100px;
+}
+
+a{
+  background-color: #E6AF2E;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  border: none;
+  color: black;
+  border-radius: 20px;
+}

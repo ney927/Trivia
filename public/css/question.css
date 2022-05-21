@@ -1,0 +1,27 @@
+body{
+  background-color: #3D348B;
+  text-align: center;
+  color: #E6AF2E;
+}
+h1{
+  margin: 50px 0px 50px 0px;
+  padding: 20px;
+}
+h2{
+  display: inline;
+  background-color: #E6AF2E;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+p{
+  text-align: right;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+h2:active{
+  box-shadow: 0 0 20px white;
+}
