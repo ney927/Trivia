@@ -9,9 +9,37 @@
 </head>
 <body>
   <h1>select a profile</h1>
-  <a href="./new_profile.html">New Profile</a>
+  <a style="background-color: #d6ba82;" href="./new_profile.html">new profile</a>
+  <div id="profiles"><br><br><br></div>
   <script>
-    
+    async function getProfiles(){
+      const res = await fetch('/allprofiles');
+      const profiles = await res.json();
+      console.log(profiles.profs);
+
+      profiles.profs.forEach(name => {
+        const a = document.createElement('a');
+        a.innerHTML = name;
+        document.getElementById('profiles').appendChild(a);
+        document.getElementById('profiles').appendChild(document.createElement('br'));
+        document.getElementById('profiles').appendChild(document.createElement('br'));
+        document.getElementById('profiles').appendChild(document.createElement('br'));
+        document.getElementById('profiles').appendChild(document.createElement('br'));
+        a.addEventListener('click', async function(){
+          const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'name': name})
+          }
+          const res = await fetch('/start', options)
+          console.log(res);
+          window.location.href = '/question.html'
+        });
+      });
+    }
+    getProfiles();
   </script>
 </body>
 </html>

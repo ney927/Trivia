@@ -9,10 +9,11 @@ h1{
   margin-top: 100px;
 }
 
-a{
+button, a{
   background-color: #E6AF2E;
   font-size: 20px;
-  padding: 10px;
+  padding: 10px 15px;
+  font-family:'Times New Roman', Times, serif;
   text-decoration: none;
   border: none;
   color: black;

@@ -4,7 +4,7 @@ body{
   color: #E6AF2E;
 }
 h1{
-  margin: 50px 0px 50px 0px;
+  margin: 20px 0px 50px 0px;
   padding: 20px;
 }
 h2{
@@ -17,9 +17,13 @@ h2{
 }
 
 p{
-  text-align: right;
-  margin-right: 20px;
+  margin: 0 20px;
   font-size: 20px;
+  text-align: left;
+}
+
+#name{
+  margin-top: 20px;
 }
 
 h2:active{

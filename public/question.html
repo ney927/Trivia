@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <p id="score">Score: X</p>
+  <p id="name">Username: </p>
+  <p id="score">Score: 0</p>
   <h1 id="Q">Q: Loading...</h1>
   <h2 id="A1">...</h2> <br><br><br><br>
   <h2 id="A2">...</h2> <br><br><br><br>
@@ -23,6 +24,7 @@
     const answer3 = document.getElementById('A3');
     const answer4 = document.getElementById('A4');
     const score = document.getElementById('score');
+    const name = document.getElementById('name');
     submitAnswer(0);
     let trivia;
 
@@ -35,8 +37,7 @@
     }
 
     async function getTrivia() {
-      // const response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
-      const response = await fetch('https://opentdb.com/api.php?amount=1&difficulty=easy');
+      const response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
       trivia = await response.json();
       let answers = [trivia.results[0].incorrect_answers[0], trivia.results[0].incorrect_answers[1], trivia.results[0].incorrect_answers[2], trivia.results[0].correct_answer];
       question.innerHTML = 'Q: '+trivia.results[0].question;
@@ -72,22 +73,27 @@
       const res = await fetch('/score', options);
       const score_json = await res.json();
       score.innerHTML = 'Score: '+score_json.score;
+      name.innerHTML = 'Username: '+score_json.name;
       if (val===1){
-        window.location.href = './correct.html'
+        window.location.href = '/correct.html'
       }
     }
 
+    async function incorrect(){
+      window.location.href = '/incorrect/'+trivia.results[0].correct_answer
+    }
+
     answer1.addEventListener('click', ()=> {
-      answer1.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):window.location.href = './incorrect.html';
+      answer1.innerHTML===trivia.results[0].correct_answer?submitAnswer(1): incorrect();
     });
     answer2.addEventListener('click', ()=> {
-      answer2.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):window.location.href = './incorrect.html';
+      answer2.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):incorrect()
     });
     answer3.addEventListener('click', ()=> {
-      answer3.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):window.location.href = './incorrect.html';
+      answer3.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):incorrect()
     });
     answer4.addEventListener('click', ()=> {
-      answer4.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):window.location.href = './incorrect.html';
+      answer4.innerHTML===trivia.results[0].correct_answer?submitAnswer(1):incorrect()
     });
 
     getTrivia();
