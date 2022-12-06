@@ -69,7 +69,7 @@ app.post('/start', function (req, res) {
   res.end();
 });
 
-const path = require('path');
+//const path = require('path');
 app.get('/incorrect/:ans', function (req, res) {
   res.sendFile(path.join(process.cwd() + '/public/incorrect.html'));
   // console.log(process.cwd()+'/public/incorrect.html');
