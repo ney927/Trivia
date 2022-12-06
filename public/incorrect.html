@@ -15,7 +15,8 @@
   <script>
     const ans_elmt = document.getElementById('ans');
     const url = window.location.href;
-    const ans = url.slice(url.lastIndexOf('/')+1);
+    let ans = url.slice(url.lastIndexOf('/')+1);
+    ans = ans.replace(/%20/g, " ");
     ans_elmt.innerHTML += ans;
   </script>
 </body>
